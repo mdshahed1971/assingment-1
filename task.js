@@ -21,7 +21,7 @@ for(const btn of cardButton){
         }
 
         if (allDisabled) {
-            alert('Congratulations! you have unlocked all the cards');
+            alert('Congratulations! you have unlocked all the modules');
         }
     })
 }
