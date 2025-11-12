@@ -36,7 +36,7 @@
   <div class="flex items-center gap-8">
     <div class="flex items-center gap-3 bg-[#F4F7FF] px-3 py-1 rounded-[35px]">
    <img src="./img/checkbox.png" alt="">
-   <h2 class="text-[#00303C] font-bold text-3xl">23</h2>
+   <h2 class="text-[#00303C] font-bold text-3xl" id="task-count">23</h2>
    </div>
    <div>
     <img src="./img/theme-btn.png" alt="" class="cursor-pointer bg-[#F4F7FF] p-2 rounded-full">
@@ -59,7 +59,7 @@
     <img src="./img/checkbox.png" alt="" class="bg-white p-3 rounded-full">
     <div>
     <h4 class="text-[#62808A] mb-1">Task Assigned</h4>
-    <h2 class="text-[#00303C] font-bold text-3xl">06</h2>
+    <h2 class="text-[#00303C] font-bold text-3xl" id="task-assigned">06</h2>
     </div>
    </div>
    <div class="flex items-center gap-5 rounded-[12px] px-8 py-[6px]" style="background: linear-gradient(130.70deg, rgba(55, 82, 253, 1),rgba(107.5982666015625, 127.0440673828125, 250.2008819580078, 1) 53%,rgba(154.99269104003906, 167.63169860839844, 247.6787109375, 1) 100%);">
@@ -80,7 +80,7 @@
 
 
 
-            <div class="grid grid-cols-3 gap-6">
+            <div class="grid card-container grid-cols-3 gap-6">
                 <!-- card 1 -->
                 <div class="bg-[#F4F7FF] p-6 rounded-lg shadow-lg border border-gray-100">
                     <a class="text-sm bg-white text-[#00303C] px-3 py-2 rounded-[10px] ">ShopEase</a>
@@ -91,7 +91,7 @@
                             <p class="text-base text-gray-500">Deadline</p>
                             <h4 class=" font-medium text-gray-700 text-lg">21 March 2025</h4>
                         </div>
-                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg ">
+                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg btn-complete">
                             Completed
                         </button>
                     </div>
@@ -106,7 +106,7 @@
                             <p class="text-base text-gray-500">Deadline</p>
                             <h4 class=" font-medium text-gray-700 text-lg">21 March 2025</h4>
                         </div>
-                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg ">
+                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg btn-complete">
                             Completed
                         </button>
                     </div>
@@ -121,7 +121,7 @@
                             <p class="text-base text-gray-500">Deadline</p>
                             <h4 class=" font-medium text-gray-700 text-lg">21 March 2025</h4>
                         </div>
-                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg ">
+                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg btn-complete">
                             Completed
                         </button>
                     </div>
@@ -136,7 +136,7 @@
                             <p class="text-base text-gray-500">Deadline</p>
                             <h4 class=" font-medium text-gray-700 text-lg">21 March 2025</h4>
                         </div>
-                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg ">
+                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg btn-complete">
                             Completed
                         </button>
                     </div>
@@ -151,7 +151,7 @@
                             <p class="text-base text-gray-500">Deadline</p>
                             <h4 class=" font-medium text-gray-700 text-lg">21 March 2025</h4>
                         </div>
-                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg ">
+                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg btn-complete">
                             Completed
                         </button>
                     </div>
@@ -161,12 +161,12 @@
                     <a class="text-sm bg-white text-[#00303C] px-3 py-2 rounded-[10px] ">Glassdoar</a>
                     <h3 class="text-xl mt-3 font-semibold text-gray-800 mb-3">Improve Job searching  </h3>
                     <p class="text-sm bg-white py-3 pl-4 text-[#9F9F9F] rounded-lg mb-6">Debug using Chrome <br>DevTools, check for overlapping</p>
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between gap-1 items-center">
                         <div>
                             <p class="text-base text-gray-500">Deadline</p>
                             <h4 class=" font-medium text-gray-700 text-lg">21 March 2025</h4>
                         </div>
-                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg ">
+                        <button class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg btn-complete">
                             Completed
                         </button>
                     </div>
@@ -179,9 +179,7 @@
     <!-- Activity Log start -->
         <div class="w-80 bg-white p-6 rounded-lg shadow-lg">
             <div class="flex items-center space-x-2 mb-6">
-                <span class="text-blue-500">
-                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </span>
+               <img src="./img/activity.png" alt="">
                 <h3 class="text-lg font-semibold text-gray-800">Activity Log</h3>
             </div>
 
@@ -200,6 +198,7 @@
 </main>
 <!-- main end -->
 
-
+<script src="task.js"></script>
+<script src="utilites.js"></script>
 </body>
 </html>
