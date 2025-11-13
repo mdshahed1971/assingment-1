@@ -1,166 +1,45 @@
+const dayElement = document.querySelector('h4'); // day
+const dateElement = document.getElementById('current-date'); // date
 
-<!-- Discover Something New Today! start -->
-<section>
-<div>
-    <img src="./img/checkbox.png" alt="">
-    <h4></h4>
-</div>
-</section>
+if (dayElement && dateElement) {
+    const today = new Date();
 
-<div class=" bg-[#F4F7FF] rounded-xl w-80 shadow-xl">
-  <div class="card-body">
-    <h4 class="text-[#40646D]">ShopEase</h2>
-    <h3 class="text-poppins text-2xl font-medium leading-9">Fix Mobile Button Issue </h3>
-    <p class="bg-white px-3 py-3 text-[#9F9F9F] rounded-[16px]">Debug using Chrome <br>DevTools, check for overlapping</p>
-    <div>
-        <div>
-        <p class="text-[#748E99]">Deadline</p>
-        <h4 class="text-[#00303C] text-lg font-medium">21 March 2025</h4>
-        </div>
-        <div>
-            <button class="text-base bg-[#3752FD] px-3 py-1 rounded-[10px]  font-medium leading-7 text-poppins">Completed</button>
-        </div>
-    </div>
-  </div>
-</div>
+    // Get current day
+    const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'short' });
+    dayElement.innerText = `${dayOfWeek} ,`; // e.g., "Wed ,"
 
+    // Get current month/day/year
+    const formattedDate = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).replace(/,/g, '');
+    dateElement.innerText = formattedDate; // e.g., "Nov 13 2025"
+}
 
+const cardButton = document.querySelectorAll('.card-container button');
+const activityLogMessages = document.getElementById('activity-log-messages');
 
+for(const btn of cardButton){
+    btn.addEventListener('click', function(){
+        const taskAssigned = getTextValueById('task-assigned');
+        const newTaskAssigned = taskAssigned -1;
+        setInnerTextById('task-assigned', newTaskAssigned);
 
+        alert('Board Updated Successfully');
+        btn.disabled = true;
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
 
-<!-- Discover Something New Today! start -->
-<section class="flex justify-center">
-    <div class="w-[73%] max-w-6xl bg-white items-center px-6 py-3 rounded-xl">
-<div class="flex gap-5 mb-10">
-<div class="flex items-center gap-5 bg-[#F4F7FF] px-5 py-3 rounded-[10px] ">
-    <img src="./img/checkbox.png" alt="" class="bg-white p-3 rounded-full">
-    <div>
-    <h4 class="text-[#62808A] mb-1">Task Assigned</h4>
-    <h2 class="text-[#00303C] font-bold text-3xl">05</h2>
-    </div>
-</div>
-<div class="flex items-center gap-5 rounded-[12px] px-8 py-[6px]" style="background: linear-gradient(130.70deg, rgba(55, 82, 253, 1),rgba(107.5982666015625, 127.0440673828125, 250.2008819580078, 1) 53%,rgba(154.99269104003906, 167.63169860839844, 247.6787109375, 1) 100%);">
+        const taskCount = getTextValueById('task-count');
+        const newTaskCount = taskCount +1;
+        setInnerTextById('task-count', newTaskCount);
 
-    <img src="./img/board.png" alt="">
-    <h4 class="text-white font-medium text-2xl leading-9">Discover Something <br>New Today!</h4>
-</div>
+        let allDisabled = true;
+        for (const b of cardButton) {
+            if (!b.disabled) {
+                allDisabled = false;
+                break;
+            }
+        }
 
-
-<div class="flex items-center gap-2 bg-[#F4F7FF] px-2 py-2 rounded-[10px] ">
-    <img src="./img/calender.png" alt="" class="bg-white p-3 rounded-full">
-    <div>
-    <h4 class="text-[#62808A] text-lg mb-[2px]">Wed ,</h4>
-    <h2 class="text-[#00303C] font-bold text-3xl">Nov 12 2025</h2>
-    </div>
-</div>
-</div>
-
-
-<div class="flex justify-center gap-5">
- <div class="bg-[#F4F7FF] p-5 rounded-2xl shadow-sm">
-          <p class="text-base bg-white p-2 rounded-[8px] font-medium text-gray-500 mb-2">ShopEase</p>
-          <h3 class="text-2xl font-semibold mb-3">Fix Mobile Button Issue</h3>
-          <p class="text-sm text-gray-500 mb-4">Debug using Chrome DevTools, check for overlapping.</p>
-          <div class="flex justify-between items-center text-sm">
-            <p class="text-gray-400">Deadline<br><span class="font-medium text-gray-700">21 March 2025</span></p>
-            <button class="bg-blue-600 text-white px-3 py-1 rounded-md text-xs">Completed</button>
-          </div>
-        </div>
-
-
-
-<div class=" bg-[#F4F7FF] rounded-xl  shadow-xl">
-  <div class="card-body">
-    <h4 class="text-[#40646D]">ShopEase</h2>
-    <h3 class="text-poppins text-2xl font-medium leading-9">Fix Mobile Button Issue </h3>
-    <p class="bg-white px-3 py-3 text-[#9F9F9F] rounded-[16px]">Debug using Chrome <br>DevTools, check for overlapping</p>
-    <div class="flex justify-between items-center">
-        <div>
-        <p class="text-[#748E99]">Deadline</p>
-        <h4 class="text-[#00303C] text-lg font-medium">21 March 2025</h4>
-        </div>
-        <div>
-            <button class="text-base bg-[#3752FD] text-white px-3 py-1 rounded-[10px]  font-medium leading-7 text-poppins">Completed</button>
-        </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class=" bg-[#F4F7FF] rounded-xl  shadow-xl">
-  <div class="card-body">
-    <h4 class="text-[#40646D]">ShopEase</h2>
-    <h3 class="text-poppins text-2xl font-medium leading-9">Fix Mobile Button Issue </h3>
-    <p class="bg-white px-3 py-3 text-[#9F9F9F] rounded-[16px]">Debug using Chrome <br>DevTools, check for overlapping</p>
-    <div class="flex justify-between items-center">
-        <div>
-        <p class="text-[#748E99]">Deadline</p>
-        <h4 class="text-[#00303C] text-lg font-medium">21 March 2025</h4>
-        </div>
-        <div>
-            <button class="text-base bg-[#3752FD] text-white px-3 py-1 rounded-[10px]  font-medium leading-7 text-poppins">Completed</button>
-        </div>
-    </div>
-  </div>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-
-
-
-
-
-
-
-
- <div class="grid grid-cols-4 gap-4 mb-5">
-                
-                <div class="flex items-center space-x-3 p-4 bg-[#F4F7FF] rounded-lg ">
-                   <img src="./img/checkbox.png" alt="" class="bg-white p-3 rounded-full">
-                    <div>
-                        <p class="text-sm text-gray-500">Task Assigned</p>
-                        <h3 class="text-2xl font-semibold text-gray-800">05</h3>
-                    </div>
-                </div>
-
-                <div class="col-span-2 flex items-center justify-center  text-white rounded-lg shadow-md" style="background: linear-gradient(130.70deg, rgba(55, 82, 253, 1),rgba(107.5982666015625, 127.0440673828125, 250.2008819580078, 1) 53%,rgba(154.99269104003906, 167.63169860839844, 247.6787109375, 1) 100%);">
-                    <img src="./img/board.png" alt="">
-                    <p class="text-xl font-medium">Discover Something <br>New Today!</p>
-                </div>
-
-                <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-md space-x-3">
-                    <span class="text-white bg-indigo-500 rounded-full p-2">
-                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    </span>
-                    <div>
-                        <p class="text-sm text-gray-500">Wed,</p>
-                        <p class="text-lg font-semibold text-gray-800">Jul 28 2025</p>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-
-
-
-
-
-
- const transitionContainer = document.getElementById('Transition-History');
-    const banks = document.getElementById('all-bank').value;
-    const div = document.createElement('div');
-    div.classList.add('bg-indigo-500', 'text-white', 'rounded-md', 'p-5', 'mb-5','mt-5')
-    div.innerHTML = `
-    <h2>Added ${amount} TAKA:</h2>
-    <h2>From ${banks}</h2>
-     <h3>Account number is: ${accountNumber}</h3>
-    `
-   transitionContainer.appendChild(div);
+        if (allDisabled) {
+            alert('Congratulations! you have unlocked all the modules');
+        }
+    });
+}
