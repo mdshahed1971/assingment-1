@@ -1,4 +1,5 @@
 const cardButton = document.querySelectorAll('.card-container button');
+const activityLogMessages = document.getElementById('activity-log-messages');
 for(const btn of cardButton){
     btn.addEventListener('click', function(){
         const taskAssigned = getTextValueById('task-assigned');
@@ -11,7 +12,9 @@ for(const btn of cardButton){
         const taskCount = getTextValueById('task-count');
         const newTaskCount = taskCount +1;
         setInnerTextById('task-count', newTaskCount);
+        
 
+        
         let allDisabled = true;
         for (const b of cardButton) {
             if (!b.disabled) {
